@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0077cc; /* Slightly brighter, modern blue */
+    --secondary-color: #f8f9fa; /* Lighter, cleaner grey background */
+    --accent-color: #ffc107; /* Added an accent color (e.g., for hover effects - optional use) */
+    --text-color: #343a40; /* Darker grey for better contrast */
+    --light-text-color: #6c757d; /* Lighter grey for subtle text */
+    --heading-font: 'Lato', sans-serif; /* Changed Heading Font - Modern Sans-serif */
+    --body-font: 'Open Sans', sans-serif; /* Changed Body Font - Clean Sans-serif */
+    --container-width: 960px;
+    --border-radius: 6px; /* Consistent border radius */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.7; /* Slightly increased line height for readability */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    /* Animated Gradient Background */
+    background: linear-gradient(270deg, #f8f9fa, #f1f3f5, #f8f9fa); /* Use subtle shades for gradient */
+    background-size: 600% 600%; /* Make gradient large for subtle shift */
+    animation: subtleGradientShift 25s ease infinite; /* Apply the gradient animation */
+    overflow-x: hidden; /* Prevent potential horizontal scroll */
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Typography Enhancements --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--primary-color); /* Changed Font Color */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700; /* Bold headings */
+}
+
+h1 {
+    font-size: 2.8rem; /* Slightly larger H1 */
+    text-align: center; /* Center H1 in header */
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2.2rem; /* Adjusted H2 Size */
+    border-bottom: 3px solid var(--primary-color); /* Thicker border */
+    padding-bottom: 0.6rem;
+    margin-top: 2.5rem; /* More space above H2 */
+}
+
+h3 {
+    font-size: 1.6rem; /* Adjusted H3 Size */
+    color: #495057; /* Slightly darker H3 color */
+}
+
+p {
+    margin-bottom: 1.2rem; /* More space below paragraphs */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition for links */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: none; /* Remove underline on hover for cleaner look */
+}
+
+/* --- Image Styling --- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto; /* Increased default margin and center images */
+    border-radius: var(--border-radius); /* Apply border radius to all images */
+}
+
+img.small-image {
+    max-width: 280px;
+    margin: 1rem auto; /* Center smaller images */
+}
+
+img.profile-pic {
+    max-width: 220px; /* Adjusted size */
+    border-radius: 50%;
+    border: 4px solid var(--primary-color); /* Thicker border */
+    margin: 0 30px 15px 0; /* Adjusted margin */
+    float: left;
+    box-shadow: var(--box-shadow); /* Add shadow to profile pic */
+}
+
+
+/* --- Header & Navigation Enhancements --- */
+header {
+    background: linear-gradient(to right, #0077cc, #0056b3);
+    color: #fff;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Add this */
+    top: 0;           /* Add this - Stick to the top */
+    width: 100%;      /* Add this - Ensure full width */
+    z-index: 100;     /* Increase z-index to be safe */
+}
+
+header .container::after {
+    content: ""; display: table; clear: both;
+}
+
+header h1 {
+    color: #fff;
+    margin-bottom: 1rem; /* Space below title */
+}
+
+header nav {
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none; padding: 0; margin: 0; display: inline-block;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 10px; /* Slightly reduced margin */
+}
+
+header nav ul li a {
+    color: #fff;
+    font-weight: normal; /* Normal weight for nav links */
+    font-size: 1rem; /* Adjusted size */
+    padding: 8px 15px; /* Adjusted padding */
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent; /* Prepare for border effect */
+}
+
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* White background on hover */
+    color: var(--primary-color);
+}
+header nav ul li a.active {
+    background-color: #fff; /* White background for active */
+    color: var(--primary-color);
+    font-weight: bold; /* Make active link bold */
+}
+
+/* --- Main Content Sections Enhancements --- */
+main {
+    padding: 3rem 0; /* Increased padding */
+    position: relative; /* Ensure main content has stacking context */
+    z-index: 1; /* Stays above body background but below header */
+}
+
+section {
+    margin-bottom: 2.5rem; /* Increased spacing */
+    padding: 2rem; /* Increased internal padding */
+    background-color: #fff; /* Cleaner white background */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow); /* Apply shadow to sections */
+    overflow: hidden;
+    border: 1px solid #dee2e6; /* Subtle border */
+}
+
+/* --- Specific Section Styling --- */
+#hero {
+    text-align: center;
+    background-color: var(--secondary-color); /* Use light grey for hero */
+    box-shadow: none;
+    border: none; /* Remove border */
+    padding: 2.5rem;
+}
+
+#hero h2 {
+    font-size: 2.5rem; /* Larger hero headline */
+    border-bottom: none;
+    color: var(--primary-color);
+}
+
+.cta-buttons {
+    margin-top: 2.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    padding: 14px 30px; /* Larger buttons */
+    font-size: 1.1rem;
+    font-family: var(--heading-font); /* Use heading font for buttons */
+    font-weight: bold;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    margin: 5px 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added transform/shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+
+/* About Page - Profile clear fix */
+.tutor-profile::after {
+    content: ""; display: table; clear: both;
+}
+
+/* Service Items & Testimonials Enhancements */
+.service-item, .teaching-approach, .testimonial-item {
+    background-color: #fff;
+    padding: 1.5rem; /* More padding */
+    margin-bottom: 1.5rem;
+    border-left: 6px solid var(--primary-color); /* Thicker accent border */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07); /* Subtle shadow on items */
+    transition: box-shadow 0.3s ease; /* Add hover effect */
+}
+.service-item:hover, .teaching-approach:hover, .testimonial-item:hover {
+     box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Enhance shadow on hover */
+}
+
+.testimonial-item {
+    background-color: var(--secondary-color); /* Use light grey for testimonials */
+}
+
+.testimonial-item blockquote {
+    font-style: italic;
+    color: var(--light-text-color); /* Lighter text for quote */
+    font-size: 1.1rem;
+    margin-bottom: 1rem; /* Space before footer */
+}
+
+.testimonial-item blockquote footer {
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+
+/* --- Contact Form Enhancements --- */
+.contact-details ul {
+    list-style: none; padding: 0;
+}
+.contact-details ul li { margin-bottom: 0.8rem; } /* More space */
+.contact-details ul li strong { margin-right: 8px; }
+
+#contact-form-section {
+    margin-top: 2.5rem;
+    padding: 2rem; /* More padding */
+    background-color: var(--secondary-color); /* Light grey background */
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+}
+
+.form-group { margin-bottom: 1.2rem; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ced4da; /* Slightly darker border */
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add focus effect */
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 119, 204, 0.25); /* Focus glow */
+    outline: none; /* Remove default outline */
+}
+
+.form-group textarea { resize: vertical; }
+
+/* Map Section */
+#map-section { margin-top: 2.5rem; }
+#map-section h3 { margin-bottom: 1rem; }
+#map-section iframe {
+    width: 100%; max-width: 100%; height: 450px;
+    border: none; /* Remove default iframe border */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow); /* Add shadow to map */
+}
+
+
+/* --- Footer Enhancements --- */
+footer {
+    background-color: #343a40; /* Darker footer */
+    color: #adb5bd; /* Lighter text color */
+    text-align: center;
+    padding: 2rem 0; /* More padding */
+    margin-top: 3rem;
+    clear: both;
+     position: relative; /* Ensure footer is above background animation */
+    z-index: 10;
+}
+
+footer .disclaimer {
+    font-size: 0.9rem; /* Increased size slightly */
+    color: #ffffff;    /* Changed to white for high contrast */
+    margin-bottom: 1rem;
+    font-style: normal; /* Removed italics */
+    font-weight: bold; /* Make it bold */
+    background-color: rgba(0,0,0,0.2); /* Optional: Subtle dark background for emphasis */
+    padding: 5px 10px; /* Optional: Add padding if using background */
+    border-radius: 4px; /* Optional: Round corners if using background */
+    display: inline-block; /* Allows background padding to work nicely */
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Design Adjustments --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    header nav ul li { margin: 0 8px; } /* Adjust spacing */
+    header nav ul li a { padding: 6px 12px; } /* Adjust padding */
+
+    img.profile-pic { float: none; display: block; margin: 0 auto 25px auto; }
+
+    .btn { padding: 12px 25px; }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 15px; }
+    .container { width: 95%; padding: 0 15px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.3rem; }
+
+    header nav ul li { display: block; margin: 10px 0; } /* Stack nav */
+
+    .btn { display: block; width: 95%; margin: 10px auto; padding: 12px 20px; }
+    #map-section iframe { height: 350px; }
+    main { padding: 2rem 0; }
+    section { padding: 1.5rem; }
+}
+
+/* --- Subtle Background Gradient Animation --- */
+@keyframes subtleGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Accordion Styling for Services Page --- */
+.service-accordion {
+    margin-bottom: 10px; /* Space between accordion items */
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Ensure content within border radius */
+}
+
+.accordion-trigger {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 15px 20px; /* Adjust padding */
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.4s ease;
+    display: flex; /* Use flex to align title and icon */
+    justify-content: space-between; /* Push icon to the right */
+    align-items: center;
+}
+
+.accordion-trigger h3 {
+    margin: 0; /* Remove default margin from h3 */
+    font-size: 1.3rem; /* Adjust title size if needed */
+    color: var(--primary-color); /* Ensure h3 color overrides button color */
+    flex-grow: 1; /* Allow title to take available space */
+}
+
+.accordion-trigger:hover {
+    background-color: #e9ecef; /* Slightly darker hover */
+}
+
+.accordion-trigger::after { /* '+' icon */
+    content: '+'; /* Unicode character for "+" sign */
+    font-size: 1.5em; /* Make icon larger */
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-left: 15px;
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+.accordion-trigger.active::after { /* '-' icon when active */
+    content: "-"; /* Unicode character for "−" sign */
+    transform: rotate(180deg); /* Optional: Rotate plus to form minus */
+}
+
+.service-panel {
+    padding: 0 20px; /* Add horizontal padding */
+    background-color: white;
+    max-height: 0; /* Hide panel by default */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition */
+}
+
+.service-panel p {
+    padding-top: 15px; /* Add space above text when opened */
+    margin-bottom: 15px;
+     color: var(--text-color); /* Ensure text color */
+}
+ .service-panel img.small-image {
+    margin-bottom: 15px; /* Add space below image in panel */
+}
+
+/* Style when panel is open (JS adds 'active' class to trigger) */
+.service-panel.open {
+    /* max-height set by JS dynamically */
+    padding: 1px 20px; /* Add padding back (1px top to prevent margin collapse) */
+     border-top: 1px solid #dee2e6; /* Separator line */
+
+}
